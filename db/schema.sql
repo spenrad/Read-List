@@ -1,11 +1,11 @@
+DROP DATABASE IF EXISTS book_db;
 CREATE DATABASE book_db;
 USE book_db;
 
 CREATE TABLE books
 (
 	ID INT NOT NULL AUTO_INCREMENT,
-	title VARCHAR(100) NOT NULL,
-    author VARCHAR(100),
-	read BOOLEAN DEFAULT false,
+	titleAuth VARCHAR(200) NOT NULL,
+	finished BOOLEAN DEFAULT false,
 	PRIMARY KEY (ID)
 );
