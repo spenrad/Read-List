@@ -14,7 +14,9 @@ const book = {
     });
   },
   updateOne(condition, cb) {
-    orm.updateOne(condition, (res) => cb(res));
+    orm.updateOne(condition, function(res) {
+      cb(res)
+    });
   }
 };
 
