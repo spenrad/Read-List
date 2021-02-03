@@ -7,11 +7,14 @@ const book = {
     });
   },
   
-  insertOne(cb) {
-    orm.insertOne((res) => cb(res));
+  insertOne(val, cb) {
+    orm.insertOne(val, function(res) {
+
+    cb(res)
+    });
   },
-  updateOne(bool, condition, cb) {
-    orm.updateOne(bool, condition, (res) => cb(res));
+  updateOne(condition, cb) {
+    orm.updateOne(condition, (res) => cb(res));
   }
 };
 

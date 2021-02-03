@@ -10,8 +10,13 @@ const orm = {
         });
     },
 
-    insertOne(cb){
-        connection.query("INSERT INTO books VALUES ?", function(err, result) {
+    insertOne(val, cb){
+        var query ="INSERT INTO books (titleAuth) VALUES ";
+        query += "( ";
+        query += "? ";
+        query += ")";
+        
+        connection.query(query, val, function(err, result) {
             if (err) {
                 throw err
             };
@@ -19,7 +24,14 @@ const orm = {
         });
     },
 
-    updateOne(){}
+    updateOne(condition, cb){
+        connection.query(`UPDATE books SET finished = true WHERE ${condition}`, function(err){
+            if (err) {
+                throw err
+            };
+            cb(results);
+        })
+    }
 };
 
 module.exports = orm;

@@ -1,5 +1,9 @@
+<div class = "container">   
 <h1>Reading is Fun</h1>
 
+
+<div class = "row">  
+<div class = "col-md-6 col-sm-12">
 <h2>Books That I Have Yet to Read</h2>
 
 <ul>
@@ -9,9 +13,10 @@
   {{/unless}}
   {{/each}}
 </ul>
+</div>
 
 
-
+<div class = "col-md-6 col-sm-12">
 <h2>Books That I Have Already Read</h2>
 
 <ul>
@@ -21,5 +26,46 @@
   {{/if}}
   {{/each}}
 </ul>
+</div>
+</div> 
+</div>
 
 <h2>Add a Book</h2>
+<form id="create-form">
+
+  <div class="form-group">
+    <label >Title and Author Name:</label>
+    <input type="text" id="titleAuth">
+  </div>
+
+  <button type="submit">Add Book</button>
+</form>
+
+<script>
+const addBook = document.getElementById('create-form');
+
+  if (addBook) {
+    addBook.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const newBook = {
+        name: document.getElementById('titleAuth').value.trim()
+      };
+
+      fetch('/api/books', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify(newBook),
+      }).then(() => {
+        
+        document.getElementById('titleAuth').value = '';
+
+        location.reload();
+      });
+    });
+  }
+</script>

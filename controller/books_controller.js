@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/api/books', function (req, res){
-    book.insertOne(['titleAuth'], [req.body.titleAuth], function (result) {
+    book.insertOne([req.body.name], function (result) {
         res.json({ id: result.insertId });
     })
 });
@@ -21,7 +21,7 @@ router.post('/api/books', function (req, res){
 router.put('/api/books/:id', function (req, res){
     const conditon = `id = ${req.params.id}`;
 
-    book.updateOnes(
+    book.updateOne(
         {
           finished : req.body.finished
         },
