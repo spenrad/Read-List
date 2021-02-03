@@ -50,7 +50,9 @@ As can be seen in the main.handlebars file there is a bootstrap cdn linked. This
 
 Additionally there is a regular CSS file linked to the main.handlebars file as well. Given more time I would have been able to dress up the app using some good old homebrewed CSS as well.
 
-Finally, the Heroku deployment may not be working as you initally read this. This is a work in progress and the README will be updated with when this is fixed and the specific cause of the error so this can be avoided by users and developers in the future.
+~~Finally, the Heroku deployment may not be working as you initally read this.~~ This is a work in progress and the README will be updated with when this is fixed and the specific cause of the error so this can be avoided by users and developers in the future.
+<b>UPDATE: Once the new connection was made to the MySQL database via heroku all that was needed to do was re-enter the schema and seeds on to the query tab and generate the tables.</b>
+
 
 ----
 
