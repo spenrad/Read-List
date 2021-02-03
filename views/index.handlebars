@@ -3,6 +3,11 @@
 <h2>Books That I Have Yet to Read</h2>
 
 <ul>
+{{#each books}}
+  {{#unless finished}}
+  {{> books/book-block finished=false}}
+  {{/unless}}
+  {{/each}}
 </ul>
 
 
@@ -10,6 +15,11 @@
 <h2>Books That I Have Already Read</h2>
 
 <ul>
+{{#each books}}
+  {{#if finished}}
+  {{> books/book-block finished=true}}
+  {{/if}}
+  {{/each}}
 </ul>
 
 <h2>Add a Book</h2>

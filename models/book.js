@@ -2,14 +2,16 @@ const orm = require('../config/orm.js');
 
 const book = {
   selectAll(cb) {
-    orm.selectAll('books', (res) => cb(res));
+    orm.selectAll(function(res) {
+      cb(res)
+    });
   },
   
-  insertOne(cols, vals, cb) {
-    orm.insertOne('books', cols, vals, (res) => cb(res));
+  insertOne(cb) {
+    orm.insertOne((res) => cb(res));
   },
   updateOne(bool, condition, cb) {
-    orm.updateOne('books', bool, condition, (res) => cb(res));
+    orm.updateOne(bool, condition, (res) => cb(res));
   }
 };
 

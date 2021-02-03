@@ -6,10 +6,10 @@ const book = require('../models/book.js');
 router.get('/', function (req, res) {
     book.selectAll( function(data) {
         const hbsObject = {
-            books : data
+            books : data,
         };
-        res.render('inndex', hbsObject);
-    })
+        res.render('index', hbsObject);
+    });
 });
 
 router.post('/api/books', function (req, res){
